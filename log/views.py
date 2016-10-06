@@ -13,12 +13,17 @@ def register(request):
         username = request.POST.get('username', None)
         email = request.POST.get('email', None)
         password = request.POST.get('password', None)
+        password_again = request.POST.get('password_again', None)
+        if password != password_again:
+            register = RegisterForm()
+            return render(request, 'register.html', {
+                'register_form': register,
+                'error_message': "Passwords not match",
+            })
         user, created = User.objects.get_or_create(username=username, email=email)
-        # Verify password function
         if created:
             user.set_password(password)
             user.save()
-
             user = authenticate(username=username, password=password)
             login(request, user)
             return redirect("/")
