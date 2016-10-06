@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block logout %}
+  <a href="{% url 'logout' %}">
+    <button type="button" class="btn btn-warning navbar-btn navbar-right">Logout</button>
+  </a>
+{% endblock %}
 
-<div class="container">
-  <div class="row">
-    <h1>HI!!</h1>
-    <p>Welcome</p>
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <h1>HI, {{ user.username }}!!</h1>
+      <p>Welcome</p>
+    </div>
   </div>
-</div>
 {% endblock %}
