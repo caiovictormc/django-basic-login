@@ -16,7 +16,9 @@
           <a class="navbar-brand" id="header-logo">Basic Login</a>
         </div>
         {% block logout %}
-          <button type="button" class="btn btn-primary navbar-btn navbar-right">Register</button>
+          <a href="{% url 'log:register' %}">
+            <button type="button" class="btn btn-primary navbar-btn navbar-right">Register</button>
+          </a>
         {% endblock %}
       </div>
     </nav>
