@@ -1,10 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  {% if form.errors %}
-    <p>Your username and password didn't match. Please try again.</p>
-  {% endif %}
-
 <div class="container">
   <div class="row">
     <div class="col-md-4 col-md-offset-4">
@@ -29,15 +25,6 @@
             </p>
             <p class="bs-component">
               <center>
-                {% if next %}
-                  {% if user.is_authenticated %}
-                    <p><strong><font color=red>Your account doesn't have
-                      permission to access this page.</font></strong></p>
-                  {% else %}
-                    <p><strong><font color=red>Please login to see
-                      this page.</font></strong></p>
-                  {% endif %}
-                {% endif %}
                 {% if form.errors %}
                   <p><font color=red>Your username and password didn't
                     match. Please try again.</font></p>
